@@ -1,0 +1,18 @@
+<h2>Films</h2>
+<div *ngIf="results.items">
+  <div *ngFor="let film of results.items">
+    <h3>
+      <span class="badge badge-secondary">{{film.releaseYear}}</span> <a routerLink="/film/{{film.id}}">{{film.title}}</a>
+      <span class="badge badge-info">{{film.rating}}</span>
+    </h3>
+    <div class="alert alert-info" role="alert">
+        <p>{{film.description}}</p>
+    </div>
+    <div class="alert alert-dark" *ngIf="film.specialFeatures">
+      <div class="alert-heading">
+        Special Features
+      </div>
+      <p>{{film.specialFeatures}}</p>
+    </div>
+  </div>
+</div>
