@@ -11,6 +11,9 @@ import { AppRoutingModule } from './/app-routing.module';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
 import { RouterModule } from '@angular/router';
+import { CategoryEditorComponent } from './category-editor/category-editor.component';
+// Bring the files in so that they can be used.
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,17 @@ import { RouterModule } from '@angular/router';
     FilmsComponent,
     FilmDetailComponent,
     CategoriesComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    CategoryEditorComponent
   ],
   imports: [
+    // We'll have to import forms module here
     BrowserModule,
     HttpModule,
     HttpClientModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [WebApiService,FilmService],
   bootstrap: [AppComponent]

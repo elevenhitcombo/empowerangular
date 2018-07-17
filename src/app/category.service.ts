@@ -3,6 +3,9 @@ import { WebApiService } from './webapi.service';
 import { HttpClient } from '@angular/common/http';
 import { CategoryResult } from './models/category/category-result';
 import { Category } from './models/category/category';
+import { CreateResponse } from './models/category/create-response';
+import { CreateRequest } from './models/category/create-request';
+import { encodeUriQuery, encodeUriFragment } from '@angular/router/src/url_tree';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +29,31 @@ export class CategoryService extends WebApiService{
   }
 
   detail(id : Number){
-    let url = `${this.apiHost}/${this.serviceUrl}/get/${id}`;
+    const url = `${this.apiHost}/${this.serviceUrl}/get/${id}`;
     return this.http
       .get<Category>(url, { headers: this.headers });
+  }
+
+  update(category: Category){
+    const name = encodeURIComponent(category.name);
+    const url = `${this.apiHost}/${this.serviceUrl}/update/${category.id}/${category.name}`;
+    return this.http
+      .put<CreateResponse>
+      (url, JSON.stringify({}), {headers: this.headers});
+  }
+
+  create(category: Category){
+    const name = encodeURIComponent(category.name);
+    const url = `${this.apiHost}/${this.serviceUrl}/create?Name=${name}`;
+    // const url = `${this.apiHost}/${this.serviceUrl}/create?FirstName=${firstName}&LastName=${lastName}`;
+    return this.http
+      .post<CreateResponse>(url, 
+        JSON.stringify({}), 
+        { headers: this.headers });
+  }
+
+  delete(id : Number){
+    const url = `${this.apiHost}/${this.serviceUrl}/delete/${id}`;
+    return this.http.delete(url, {headers: this.headers});
   }
 }

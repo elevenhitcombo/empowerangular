@@ -5,6 +5,7 @@ import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { CategoryEditorComponent } from './category-editor/category-editor.component';
 
 const routes: Routes = [
   // path - represents the bit you would after localhost:4200
@@ -13,8 +14,10 @@ const routes: Routes = [
   { path: 'films', component: FilmsComponent },
   { path: 'film/:id', component: FilmDetailComponent },
   { path: 'categories', component: CategoriesComponent },
-  // http://localhost:4200/category/2
+  { path: 'category/new', component: CategoryEditorComponent },
+  { path: 'category/edit/:id', component: CategoryEditorComponent },
   { path: 'category/:id', component: CategoryDetailComponent }
+  
 ];
 
 @NgModule({

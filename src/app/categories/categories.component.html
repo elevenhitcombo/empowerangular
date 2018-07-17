@@ -1,10 +1,17 @@
+<a routerLink="/category/new" class="btn btn-success">New</a>
+<h3 *ngIf="statusMessage">{{statusMessage}}</h3>
 <div *ngIf="results.items">
     <!-- At this point, we know we have items  
          We want to iterate over them, one by one
     -->
     <p *ngFor="let category of results.items" class="lead">
-      <a routerLink="/category/{{category.id}}">{{category.name}}</a>
+      <a routerLink="/category/edit/{{category.id}}" class="btn btn-primary">Edit</a>
+      <a (click)="deleteCategory(category.id)" class="btn btn-danger">Delete</a>
+      <!-- <a routerLink="/category/delete/{{category.id}}" class="btn btn-danger">Delete</a> -->
+      <a routerLink="/category/{{category.id}}"> {{category.name}}</a> 
       <br />
-      <small><strong>Last updated</strong>  {{category.lastUpdate | date: 'MM-dd-yy'}}</small>
+      <small>
+        <strong>Last updated</strong>  {{category.lastUpdate | date: 'MM-dd-yy'}}
+      </small>
     </p>
 </div>

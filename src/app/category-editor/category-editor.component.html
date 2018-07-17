@@ -1,0 +1,31 @@
+<h3>Category ID is {{category.id}} </h3>
+<p class="lead">{{statusMessage}}</p>
+<form 
+  name="form" 
+  (ngSubmit)="f.form.valid && (category.id === 0 ? create() : update())" 
+  #f="ngForm" 
+  novalidate>
+  {{category.name}}
+  <div class="form-group">
+    <label for="categoryName">Category Name</label>
+    <!-- type = text. default input type 
+     class = CSS class.  Just about style 
+      categoryName = reference for this form element -->
+    <!--   name 
+           #categoryName
+           [(ngModel)] - which bit of the model we're concerned
+             with.  In this case, we want to two way bind category.name
+           placeholder - greyed out text. 
+           required - standard validation
+    -->
+    <input 
+      type="text" 
+      class="form-control" 
+      name="categoryName" 
+      [(ngModel)]="category.name" 
+      #categoryName="ngModel" 
+      placeholder="Enter category name..." 
+      required />
+    <input type="submit" value="Add category" class="btn btn-primary" />
+  </div>
+</form>

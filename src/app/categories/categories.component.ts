@@ -8,29 +8,25 @@ import { CategoryResult } from '../models/category/category-result';
   styleUrls: ['./categories.component.css']
 })
 export class CategoriesComponent implements OnInit {
+  statusMessage: string = "";
   results : CategoryResult = new CategoryResult();
 
   constructor(private categoryService : CategoryService) { }
 
-  ngOnInit() {
-    // This is where we set our component up 
-    // This will run every time the component is selected.
+  deleteCategory(id : Number){
+    this.categoryService.delete(id)
+      .subscribe(data => this.list());
+  }
 
-    // Bring the results in using a service.
-    // Call the method
+  list(){
     this.categoryService.list(1)
-      // Subscribe says we're interested in the results
-      // when they come in.
       .subscribe(
-          // When you are inside subscribe,
-          // the results are ready
-          //
-          // You can create a shorthand for
-          // the results with a lambda expresssion
           data => 
-            // You can then assign that to your local
-            // component
             this.results = data
       );
+  }
+
+  ngOnInit() {
+    this.list();
   }
 }
