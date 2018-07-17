@@ -76,7 +76,7 @@ export class CategoryEditorComponent implements OnInit {
         );
     }
     else{
-      id = 0;
+      this.category.id = 0;
     }
   }
 }
