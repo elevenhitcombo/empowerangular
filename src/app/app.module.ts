@@ -8,17 +8,23 @@ import { AppComponent } from './app.component';
 import { FilmsComponent } from './films/films.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmsComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    CategoriesComponent,
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
+    RouterModule,
     AppRoutingModule
   ],
   providers: [WebApiService,FilmService],

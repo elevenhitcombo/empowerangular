@@ -13,5 +13,5 @@ export class Film {
     replacementCost: Number;
     lastUpdate: Date;
     languageId: Number;
-    originalLanguageId: Number
+    originalLanguageId: Number;
 }

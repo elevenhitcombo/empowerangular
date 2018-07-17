@@ -1,7 +1,23 @@
 <h2>Films</h2>
+<!-- ngIf - will only show the element and any containing elements
+     if the thing being referenced is "truthy"
+
+     Truthy = populated list, non-zero number, populated string
+
+-->
 <div *ngIf="results.items">
+  <!-- At this point, we know we have items  
+       We want to iterate over them, one by one
+  -->
   <div *ngFor="let film of results.items">
+    <!-- We've also got access to something called film 
+         This represents a single film in our collection of 
+         results
+    -->
     <h3>
+      <!-- You can use Angular angled syntax to start exposing
+           the properties of each film
+      -->
       <span class="badge badge-secondary">{{film.releaseYear}}</span> <a routerLink="/film/{{film.id}}">{{film.title}}</a>
       <span class="badge badge-info">{{film.rating}}</span>
     </h3>
@@ -15,4 +31,6 @@
       <p>{{film.specialFeatures}}</p>
     </div>
   </div>
+  <!-- The ngFor loop ends here -->
 </div>
+<!-- The ngIf statement ends here -->

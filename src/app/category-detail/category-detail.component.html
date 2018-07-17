@@ -1,0 +1,11 @@
+
+<div *ngIf="category">
+  <h2>{{category.name}}</h2>
+  <!-- calling on category, which we know exists -->
+  <!-- The 'let' part of creates a variable called film -->
+  <h4 *ngFor="let film of category.films">
+    {{film.title}} <span class="badge badge-info">{{film.releaseYear}}</span>
+  </h4>
+
+  <!-- Can I use film here? -->
+</div>  

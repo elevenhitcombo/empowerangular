@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FilmService } from '../film.service';
@@ -10,7 +10,7 @@ import { Film } from '../models/film/film';
   styleUrls: ['./film-detail.component.css']
 })
 export class FilmDetailComponent implements OnInit {
-  @Input() id : Number;
+  id : Number;
   film : Film;
 
   constructor(

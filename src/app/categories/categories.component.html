@@ -1,0 +1,10 @@
+<div *ngIf="results.items">
+    <!-- At this point, we know we have items  
+         We want to iterate over them, one by one
+    -->
+    <p *ngFor="let category of results.items" class="lead">
+      <a routerLink="/category/{{category.id}}">{{category.name}}</a>
+      <br />
+      <small><strong>Last updated</strong>  {{category.lastUpdate | date: 'MM-dd-yy'}}</small>
+    </p>
+</div>

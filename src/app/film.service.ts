@@ -16,8 +16,18 @@ export class FilmService extends WebApiService {
   }
 
   list(page : Number) {
+    // Setting the location of where the API service can be found
+    // 
+    // We're also using string interpolation.
+    // 
     let url = `${this.apiHost}/${this.serviceUrl}/list/${page}`;
+
+    // We're using the http client to visit the resource.
+    // If we want to access member variables, we have to 
+    // prefix them with this, which is a shorthand to the 
+    // current instantiation.
     return this.http
+      // get
       .get<FilmResults>(url, { headers: this.headers });
   }
 
